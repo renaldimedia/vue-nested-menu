@@ -1,0 +1,82 @@
+{
+  "_from": "vue-nested-menu",
+  "_id": "vue-nested-menu@0.0.2",
+  "_inBundle": false,
+  "_integrity": "sha512-F0MNKqth2ICiO8fD+uWmmuNbV5G8TeAZeoZICHqIdBFQh4nNJwvrlWcIvgDBVVbIn6xhEHt00kZyj5FdScBC6g==",
+  "_location": "/vue-nested-menu",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "vue-nested-menu",
+    "name": "vue-nested-menu",
+    "escapedName": "vue-nested-menu",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/vue-nested-menu/-/vue-nested-menu-0.0.2.tgz",
+  "_shasum": "8e879b32d24db12a765f3a591854c148ac5d3400",
+  "_spec": "vue-nested-menu",
+  "_where": "/home/ardi/Documents/Project/MARKETPLACE/market-app",
+  "author": {
+    "name": "guansunyata@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/guAnsunyata/vue-nested-menu/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "A simple, hands-on slide nested menu with a smooth slide effect.",
+  "devDependencies": {
+    "@storybook/addon-actions": "^4.0.0-alpha.4",
+    "@storybook/addon-links": "^4.0.0-alpha.4",
+    "@storybook/addons": "^4.0.0-alpha.4",
+    "@storybook/vue": "^4.0.0-alpha.4",
+    "babel-core": "^6.26.3",
+    "babel-preset-vue": "^2.0.2",
+    "cross-env": "^5.1.5",
+    "mime": "^2.3.1",
+    "node-sass": "^4.9.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "rollup": "^0.36.1",
+    "rollup-plugin-buble": "^0.14.0",
+    "rollup-plugin-commonjs": "^5.0.4",
+    "rollup-plugin-eslint": "^3.0.0",
+    "rollup-plugin-node-globals": "^1.0.9",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-uglify": "^1.0.1",
+    "rollup-plugin-vue": "^5.0.0",
+    "sass-loader": "^7.0.1",
+    "vue": "^2.5.16",
+    "vue-loader": "14.2.2",
+    "vue-template-compiler": "^2.5.16"
+  },
+  "homepage": "https://github.com/guAnsunyata/vue-nested-menu#readme",
+  "keywords": [
+    "Vue",
+    "navigation",
+    "slide-menu",
+    "nested",
+    "mobile",
+    "responsive"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "name": "vue-nested-menu",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guAnsunyata/vue-nested-menu.git"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production rollup -c",
+    "build-storybook": "build-storybook",
+    "storybook": "start-storybook -p 6006"
+  },
+  "version": "0.0.2"
+}
