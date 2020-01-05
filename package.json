@@ -71,7 +71,7 @@
   "name": "vue-nested-menu",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guAnsunyata/vue-nested-menu.git"
+    "url": "git+https://github.com/renaldimedia/vue-nested-menu.git"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup -c",
