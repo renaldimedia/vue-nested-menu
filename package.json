@@ -24,14 +24,14 @@
   "_spec": "vue-nested-menu",
   "_where": "/home/ardi/Documents/Project/MARKETPLACE/market-app",
   "author": {
-    "name": "guansunyata@gmail.com"
+    "name": "renaldimedia@gmail.com"
   },
   "bugs": {
     "url": "https://github.com/guAnsunyata/vue-nested-menu/issues"
   },
   "bundleDependencies": false,
   "deprecated": false,
-  "description": "A simple, hands-on slide nested menu with a smooth slide effect.",
+  "description": "Forked from vue-nested-menu(https://github.com/guAnsunyata/vue-nested-menu) this is my personal version, add user panel on top and fix some bugs",
   "devDependencies": {
     "@storybook/addon-actions": "^4.0.0-alpha.4",
     "@storybook/addon-links": "^4.0.0-alpha.4",
