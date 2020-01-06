@@ -3,13 +3,27 @@
 
         <MenuBurger :handleBurgerClicked="clickBurger" />
 
-        <MenuShadow :isActive="isActive" :handleShadowClicked="clickShadow" />
+        <MenuShadow :isActive="menuActivator" :handleShadowClicked="clickShadow" />
 
 	    <div class="Menu__panel-wrapper"
-            :class="{'isActive': isActive}"
-            :style="[style_wrapperStyle, isActive ? style_wrapperActiveStyle : {}]"
+            :class="{'isActive': menuActivator}"
+            :style="[style_wrapperStyle, menuActivator ? style_wrapperActiveStyle : {}]"
         >
-
+            <div v-if="user.loggedIn" style="display:flex;padding-top:5px;background-color:#ffffff;margin-bottom:0px;height:110px;margin:auto;padding-left:10px;">
+                <div style="display:inline-flex">
+                    <img v-if="user && user.avatar" :src="user.avatar" :alt="user.username">
+                    <img v-else src="https://avataaars.io/?avatarStyle=Circle&topType=Hat&accessoriesType=Blank&facialHairType=BeardMedium&facialHairColor=BrownDark&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light" alt="avatar" style="width:100px;height:100px;margin-right:10px;">
+                    <div style="display:flex!important;flex-direction:column;">
+                        <p style="margin-bottom:0px" class="subtitle">{{ user.username }}</p>
+                        <p>{{ user.role }}</p>
+                        <div style="display:flex!important;flex-direction:row;">
+                            <a href="#" class="btn btn-danger">Logout</a>
+                            <a href="#" class="btn btn-primary">Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="position: relative">
 	        <!-- prev -->
             <MenuPanel
                 :list="content_prevItem"
@@ -41,6 +55,10 @@
                 :transitionStyle="style_transitionStyle"
                 :showHeaderArrow="true"
             />
+            </div>
+            <div style="position:relative;">
+                <p>foot</p>
+            </div>
 	    </div>
 	</div>
 </template>
@@ -57,6 +75,7 @@ import LeftArrowIcon from './icons/LeftArrowIcon.vue';
 import MenuBurger from './components/MenuBurger.vue';
 import MenuShadow from './components/MenuShadow.vue';
 import MenuPanel from './components/MenuPanel.vue';
+import { type } from 'os'
 
 export default {
     mixins: [
@@ -74,16 +93,35 @@ export default {
     props: {
         source: {
             type: Object,
-            default: {
-                title: 'Default',
-                children: [
-                    {
-                        title: 'Default child 1',
-                        link: '/browse/test',
-                        children: []
-                    }
-                ]
-            }
+            default: (() => {
+                return {
+                    title: 'Default',
+                    children: [
+                        {
+                            title: 'Default child 1',
+                            link: '/browse/test',
+                            children: []
+                        }
+                    ]
+                }
+            })
+        },
+        user: {
+            type: Object,
+            default: (() => {
+                return {
+                    loggedIn: false,
+                    avatar: null,
+                    username: 'Jhon Doe',
+                    role: 'Seller',
+                    logoutUrl: '/logout',
+                    infoUrl: '/profile'
+                }
+            })
+        },
+        menuActivator: {
+            type: Boolean,
+            default: false
         },
         panelWidth: {
             type: Number,
@@ -101,7 +139,7 @@ export default {
     data() {
         return {
             data: this.source,
-            isActive: false,
+            isActive: this.menuActivator,
             isTranslating: false,
         };
     },
@@ -118,10 +156,12 @@ export default {
     },
     methods: {
     	clickBurger() {
-    		this.isActive = !this.isActive;
+            this.isActive = !this.isActive;
+            this.$emit('update:menuActivator', this.isActive);
     	},
         clickShadow() {
             this.isActive = false;
+            this.$emit('update:menuActivator', false);
         },
         clickNextItem(targetItem) {
 
@@ -215,3 +255,20 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+    .btn {
+        background-color:transparent;
+        border: 0.5px solid #33333350;
+        padding:3px 8px 3px 8px;
+        text-decoration:none;
+        border-radius:2px;
+        margin-right: 10px;
+    }
+    .btn-danger{
+        color:#b91400;
+    }
+    .btn-primary{
+        color:#009688;
+    }
+</style>
